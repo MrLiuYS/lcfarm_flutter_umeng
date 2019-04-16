@@ -1,0 +1,34 @@
+PODS:
+  - Flutter (1.0.0)
+  - lcfarm_flutter_umeng (0.0.1):
+    - Flutter
+    - UMCAnalytics
+    - UMCCommon
+  - UMCAnalytics (6.0.3):
+    - UMCCommon
+  - UMCCommon (2.0.1)
+
+DEPENDENCIES:
+  - Flutter (from `.symlinks/flutter/ios-release`)
+  - lcfarm_flutter_umeng (from `.symlinks/plugins/lcfarm_flutter_umeng/ios`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - UMCAnalytics
+    - UMCCommon
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: ".symlinks/flutter/ios-release"
+  lcfarm_flutter_umeng:
+    :path: ".symlinks/plugins/lcfarm_flutter_umeng/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
+  lcfarm_flutter_umeng: eccfa0ed80f339b42572352ec81e6e2a39dc39a3
+  UMCAnalytics: ff58714ada407682c4a07548156f94bcec92f055
+  UMCCommon: 0263a057a2e1ae1da4c8308541e56904a493ce13
+
+PODFILE CHECKSUM: aff02bfeed411c636180d6812254b2daeea14d09
+
+COCOAPODS: 1.6.0.beta.1

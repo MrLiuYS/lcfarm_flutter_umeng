@@ -12,32 +12,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
-
   @override
   void initState() {
     super.initState();
-    initPlatformState();
-  }
+//    initPlatformState();
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      platformVersion = await LcfarmFlutterUmeng.platformVersion;
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
+    LcfarmFlutterUmeng.init(
+        "5cb3dcc00cafb2231600019a", "5cb3dcef61f5646dab001371",
+        logEnable: true);
   }
 
   @override
@@ -48,9 +30,28 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: Text('Running on: lcfarm_flutter_umeng\n'),
         ),
+        floatingActionButton: FloatingActionButton(
+            child: const Icon(Icons.add), onPressed: _btnClick1111),
       ),
     );
+  }
+
+  void _btnClick1111() {
+    print("_btnClick1111");
+
+    LcfarmFlutterUmeng.event("floatingActionButton");
+
+//    var list = [1, 2, 3];
+//    var x = list[10];
+//
+//    list.removeAt(10);
+//
+//    print(x);
+
+//    setState(() {
+//      isCrash = true;
+//    });
   }
 }

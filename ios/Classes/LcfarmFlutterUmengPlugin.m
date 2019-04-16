@@ -1,9 +1,6 @@
 #import "LcfarmFlutterUmengPlugin.h"
-
 #import <UMAnalytics/MobClick.h>
-
-#import <UMCommon/UMConfigure.h>
-
+#import <UMCommon/UMCommon.h>
 
 @implementation LcfarmFlutterUmengPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
@@ -15,11 +12,10 @@
 }
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
-    
     //初始化
     if ([@"init" isEqualToString:call.method]) {
         [self init:call result:result];
-        result(nil);
+        //result(nil);
     }
     //事件埋点
     else if ([@"event" isEqualToString:call.method]) {
@@ -43,15 +39,22 @@
 
 - (void)init:(FlutterMethodCall*)call result:(FlutterResult)result {
     
-    NSString* channel = call.arguments[@"channel"] ?: @"";
-    
-    [UMConfigure initWithAppkey:call.arguments[@"appKey"] channel:channel];
+    [MobClick setScenarioType:E_UM_NORMAL];
     
     NSNumber* logEnable = call.arguments[@"logEnable"];
-    if (logEnable) [UMConfigure setLogEnabled:[logEnable boolValue]];
-    
+    if (logEnable) {
+        [UMConfigure setLogEnabled:[logEnable boolValue]];
+    }
     NSNumber* encrypt = call.arguments[@"encrypt"];
-    if (encrypt) [UMConfigure setEncryptEnabled:[encrypt boolValue]];
+    if (encrypt) {
+        [UMConfigure setEncryptEnabled:[encrypt boolValue]];
+    }
+    
+    NSString* channel = call.arguments[@"channel"] ?: @"flutter";
+    
+    NSString* appKey = call.arguments[@"appKey"] ?: @"";
+    
+    [UMConfigure initWithAppkey:appKey channel:channel];
     
 }
 
@@ -75,14 +78,5 @@
     
 }
 
-
-
-
-
-
-
-
 @end
-
-
 
