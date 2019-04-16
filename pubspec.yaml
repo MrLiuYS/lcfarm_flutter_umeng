@@ -1,8 +1,8 @@
 name: lcfarm_flutter_umeng
-description: A new flutter plugin project.
+description: lcfarm umeng plugin.
 version: 0.0.1
-author:
-homepage:
+author: mrliuys <3050700400@qq.com>
+homepage: https://github.com/MrLiuYS/lcfarm_flutter_umeng.git
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
