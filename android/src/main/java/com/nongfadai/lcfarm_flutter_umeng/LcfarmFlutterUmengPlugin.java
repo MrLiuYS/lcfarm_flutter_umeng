@@ -1,6 +1,7 @@
 package com.nongfadai.lcfarm_flutter_umeng;
 
 import android.app.Activity;
+import android.text.TextUtils;
 
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
@@ -47,25 +48,51 @@ public class LcfarmFlutterUmengPlugin implements MethodCallHandler {
 
     public void init(MethodCall call, Result result){
 
-        UMConfigure.setLogEnabled(true);
-        UMConfigure.init(activity, (String) call.argument("appKey"), "flutter", UMConfigure.DEVICE_TYPE_PHONE, null);
-//        UMConfigure.setEncryptEnabled(true);
+        boolean logEnable = false;
+        if(call.hasArgument("logEnable")){
+            logEnable = (boolean)call.argument("logEnable");
+        }
+
+        UMConfigure.setLogEnabled(logEnable);
+
+        String channel = "flutter";
+        if(call.hasArgument("logEnable")){
+            channel = (String) call.argument("channel");
+        }
+
+        UMConfigure.init(activity, (String) call.argument("appKey"), channel, UMConfigure.DEVICE_TYPE_PHONE, null);
+
+        boolean encrypt = false;
+
+        if(call.hasArgument("encrypt")){
+            encrypt = (boolean)call.argument("encrypt");
+        }
+
+
+        UMConfigure.setEncryptEnabled(encrypt);
+
+        MobclickAgent.openActivityDurationTrack(false);
+
         result.success(true);
 
     }
 
     public  void event(MethodCall call, Result result) {
 
-        MobclickAgent.onEvent(activity, (String) call.argument("eventId"));
+        if (call.hasArgument("label")){
+            String label = (String) call.argument("label");
+            MobclickAgent.onEvent(activity,(String) call.argument("eventId"),label);
+
+        }else {
+            MobclickAgent.onEvent(activity, (String) call.argument("eventId"));
+        }
 
     }
 
     public  void beginLogPageView(MethodCall call, Result result) {
 
-
         MobclickAgent.onPageStart((String) call.argument("pageName"));
         MobclickAgent.onResume(activity);
-
 
     }
 
@@ -75,6 +102,5 @@ public class LcfarmFlutterUmengPlugin implements MethodCallHandler {
         MobclickAgent.onPause(activity);
 
     }
-
 
 }

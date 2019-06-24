@@ -26,7 +26,7 @@ class LcfarmFlutterUmeng {
     if (channel != null) {
       args["channel"] = channel;
     } else {
-      args["channel"] = "App Store";
+      args["channel"] = "flutter";
     }
 
     if (logEnable != null) args["logEnable"] = logEnable;

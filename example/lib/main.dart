@@ -11,7 +11,7 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
@@ -20,6 +20,24 @@ class _MyAppState extends State<MyApp> {
     LcfarmFlutterUmeng.init(
         "5cb3dcc00cafb2231600019a", "5cb3dcef61f5646dab001371",
         logEnable: true);
+
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      LcfarmFlutterUmeng.beginLogPageView("main");
+    } else if (state == AppLifecycleState.paused) {
+      LcfarmFlutterUmeng.endLogPageView("main");
+    }
+    super.didChangeAppLifecycleState(state);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    WidgetsBinding.instance.removeObserver(this);
   }
 
   @override
