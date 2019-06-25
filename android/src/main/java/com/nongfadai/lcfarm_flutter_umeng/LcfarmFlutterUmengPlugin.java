@@ -38,6 +38,10 @@ public class LcfarmFlutterUmengPlugin implements MethodCallHandler {
             beginLogPageView(call, result);
         }else if (call.method.equals("endLogPageView")){
             endLogPageView(call, result);
+        }else if (call.method.equals("onResume")){
+            onResumeActivity(call, result);
+        }else if (call.method.equals("onPause")){
+            onPauseActivity(call, result);
         }
 
         else {
@@ -87,19 +91,38 @@ public class LcfarmFlutterUmengPlugin implements MethodCallHandler {
             MobclickAgent.onEvent(activity, (String) call.argument("eventId"));
         }
 
+        result.success(true);
     }
 
     public  void beginLogPageView(MethodCall call, Result result) {
 
         MobclickAgent.onPageStart((String) call.argument("pageName"));
-        MobclickAgent.onResume(activity);
+
+        result.success(true);
 
     }
 
     public  void endLogPageView(MethodCall call, Result result) {
 
         MobclickAgent.onPageEnd((String) call.argument("pageName"));
+
+        result.success(true);
+
+    }
+
+    public  void onResumeActivity(MethodCall call, Result result) {
+
         MobclickAgent.onPause(activity);
+
+        result.success(true);
+
+    }
+
+    public  void onPauseActivity(MethodCall call, Result result) {
+
+        MobclickAgent.onPause(activity);
+
+        result.success(true);
 
     }
 

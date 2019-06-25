@@ -27,9 +27,9 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
-      LcfarmFlutterUmeng.beginLogPageView("main");
+      LcfarmFlutterUmeng.onResume();
     } else if (state == AppLifecycleState.paused) {
-      LcfarmFlutterUmeng.endLogPageView("main");
+      LcfarmFlutterUmeng.onPause();
     }
     super.didChangeAppLifecycleState(state);
   }

@@ -50,4 +50,14 @@ class LcfarmFlutterUmeng {
   static Future<Null> endLogPageView(String pageName) async {
     await _channel.invokeMethod("endLogPageView", {"pageName": pageName});
   }
+
+  ///统计时长
+  static Future<Null> onResume() async {
+    await _channel.invokeMethod("onResume");
+  }
+
+  ///统计时长
+  static Future<Null> onPause() async {
+    await _channel.invokeMethod("onPause");
+  }
 }
