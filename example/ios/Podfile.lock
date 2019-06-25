@@ -9,7 +9,7 @@ PODS:
   - UMCCommon (2.0.1)
 
 DEPENDENCIES:
-  - Flutter (from `.symlinks/flutter/ios-release`)
+  - Flutter (from `.symlinks/flutter/ios`)
   - lcfarm_flutter_umeng (from `.symlinks/plugins/lcfarm_flutter_umeng/ios`)
 
 SPEC REPOS:
@@ -19,7 +19,7 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   Flutter:
-    :path: ".symlinks/flutter/ios-release"
+    :path: ".symlinks/flutter/ios"
   lcfarm_flutter_umeng:
     :path: ".symlinks/plugins/lcfarm_flutter_umeng/ios"
 
