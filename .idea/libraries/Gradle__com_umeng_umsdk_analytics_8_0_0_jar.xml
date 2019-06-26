@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Gradle: com.umeng.umsdk:analytics:8.0.0@jar" type="AndroidModuleLibraryType">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.umeng.umsdk/analytics/8.0.0/e199c24de741c6be6ed643437408ec3e5590f7c5/analytics-8.0.0.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

@@ -1,6 +1,6 @@
 name: lcfarm_flutter_umeng
-description: lcfarm umeng plugin.
-version: 0.1.1
+description: lcfarm umeng plugin.友盟统计android版本是8.0一下的.
+version: 0.1.2
 author: mrliuys <qimeng083@gmail.com>
 homepage: https://github.com/MrLiuYS/lcfarm_flutter_umeng.git
 

@@ -60,7 +60,7 @@ public class LcfarmFlutterUmengPlugin implements MethodCallHandler {
         UMConfigure.setLogEnabled(logEnable);
 
         String channel = "flutter";
-        if(call.hasArgument("logEnable")){
+        if(call.hasArgument("channel")){
             channel = (String) call.argument("channel");
         }
 
