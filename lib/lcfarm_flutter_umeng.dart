@@ -38,7 +38,12 @@ class LcfarmFlutterUmeng {
 
   ///事件埋点
   static Future<Null> event(String eventId, {String label}) async {
-    await _channel.invokeMethod("event", {"eventId": eventId, "label": label});
+    if (label == null) {
+      await _channel.invokeMethod("event", {"eventId": eventId});
+    } else {
+      await _channel
+          .invokeMethod("event", {"eventId": eventId, "label": label});
+    }
   }
 
   ///统计页面时间-开始
