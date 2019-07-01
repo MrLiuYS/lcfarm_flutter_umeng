@@ -1,6 +1,6 @@
 name: lcfarm_flutter_umeng
 description: lcfarm umeng plugin.android mast change `MainActivity.java` add `onResume`and `onPause`
-version: 0.1.3
+version: 0.1.4
 author: mrliuys <qimeng083@gmail.com>
 homepage: https://github.com/MrLiuYS/lcfarm_flutter_umeng.git
 

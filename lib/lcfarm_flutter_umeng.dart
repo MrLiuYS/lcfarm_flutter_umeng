@@ -8,17 +8,17 @@ class LcfarmFlutterUmeng {
       const MethodChannel('lcfarm_flutter_umeng');
 
   ///初始化友盟所有组件产品
-  static Future<bool> init(String iOSAppKey, String androidAppKey,
-      {
+  static Future<bool> init({
+    String iOSAppKey,
+    String androidAppKey,
+    String channel, //渠道标识
 
-      ///渠道标识
-      String channel,
+    bool logEnable, //设置是否在console输出sdk的log信息.
 
-      ///设置是否在console输出sdk的log信息.
-      bool logEnable,
-
-      ///设置是否对日志信息进行加密, 默认NO(不加密).设置为YES, umeng SDK 会将日志信息做加密处理
-      bool encrypt}) async {
+    bool encrypt, //设置是否对日志信息进行加密, 默认NO(不加密).设置为YES, umeng SDK 会将日志信息做加密处理
+  }) async {
+    assert((Platform.isAndroid && androidAppKey != null) ||
+        (Platform.isIOS && iOSAppKey != null));
     Map<String, dynamic> args = {
       "appKey": Platform.isAndroid ? androidAppKey : iOSAppKey
     };
@@ -38,12 +38,10 @@ class LcfarmFlutterUmeng {
 
   ///事件埋点
   static Future<Null> event(String eventId, {String label}) async {
-    if (label == null) {
-      await _channel.invokeMethod("event", {"eventId": eventId});
-    } else {
-      await _channel
-          .invokeMethod("event", {"eventId": eventId, "label": label});
-    }
+    Map<String, dynamic> args = {"eventId": eventId};
+    if (label != null) args["label"] = label;
+
+    await _channel.invokeMethod("event", args);
   }
 
   ///统计页面时间-开始

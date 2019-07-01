@@ -11,33 +11,16 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
+class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
 //    initPlatformState();
 
     LcfarmFlutterUmeng.init(
-        "5cb3dcc00cafb2231600019a", "5cb3dcef61f5646dab001371",
-        logEnable: true);
-
-    WidgetsBinding.instance.addObserver(this);
-  }
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.resumed) {
-      LcfarmFlutterUmeng.onResume();
-    } else if (state == AppLifecycleState.paused) {
-      LcfarmFlutterUmeng.onPause();
-    }
-    super.didChangeAppLifecycleState(state);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    WidgetsBinding.instance.removeObserver(this);
+      iOSAppKey: "5cb3dcc00cafb2231600019a",
+      androidAppKey: "5cb3dcef61f5646dab001371",
+    );
   }
 
   @override
