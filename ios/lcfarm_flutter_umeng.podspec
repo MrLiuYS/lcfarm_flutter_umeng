@@ -20,6 +20,7 @@ A new flutter plugin project.
 
   s.dependency 'UMCCommon'
   s.dependency 'UMCAnalytics'
+  s.static_framework = true
 
 
 end
