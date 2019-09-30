@@ -1,3 +1,7 @@
+## 0.1.6
+android 渠道调整。
+不传channel ，则读取androidmanifest.xml
+
 ## 0.1.5
 
 iOS支持swift

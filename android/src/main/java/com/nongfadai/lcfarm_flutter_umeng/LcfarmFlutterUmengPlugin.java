@@ -59,19 +59,18 @@ public class LcfarmFlutterUmengPlugin implements MethodCallHandler {
 
         UMConfigure.setLogEnabled(logEnable);
 
-        String channel = "flutter";
         if(call.hasArgument("channel")){
-            channel = (String) call.argument("channel");
+            String channel = (String) call.argument("channel");
+            UMConfigure.init(activity, (String) call.argument("appKey"), channel, UMConfigure.DEVICE_TYPE_PHONE, null);
+        }else {
+            UMConfigure.init(activity, (String) call.argument("appKey"), null, UMConfigure.DEVICE_TYPE_PHONE, null);
         }
-
-        UMConfigure.init(activity, (String) call.argument("appKey"), channel, UMConfigure.DEVICE_TYPE_PHONE, null);
 
         boolean encrypt = false;
 
         if(call.hasArgument("encrypt")){
             encrypt = (boolean)call.argument("encrypt");
         }
-
 
         UMConfigure.setEncryptEnabled(encrypt);
 

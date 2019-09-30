@@ -25,10 +25,7 @@ class LcfarmFlutterUmeng {
 
     if (channel != null) {
       args["channel"] = channel;
-    } else {
-      args["channel"] = "flutter";
     }
-
     if (logEnable != null) args["logEnable"] = logEnable;
     if (encrypt != null) args["encrypt"] = encrypt;
 

@@ -50,7 +50,7 @@
         [UMConfigure setEncryptEnabled:[encrypt boolValue]];
     }
     
-    NSString* channel = call.arguments[@"channel"] ?: @"flutter";
+    NSString* channel = call.arguments[@"channel"] ?: @"App Store";
     
     NSString* appKey = call.arguments[@"appKey"] ?: @"";
     
