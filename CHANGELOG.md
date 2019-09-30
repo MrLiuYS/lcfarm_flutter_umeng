@@ -1,3 +1,6 @@
+## 0.1.7
+android 多渠道
+
 ## 0.1.6
 android 渠道调整。
 不传channel ，则读取androidmanifest.xml

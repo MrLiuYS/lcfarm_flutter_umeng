@@ -1,6 +1,9 @@
 package com.nongfadai.lcfarm_flutter_umeng;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.text.TextUtils;
 
 import com.umeng.analytics.MobclickAgent;
@@ -25,6 +28,18 @@ public class LcfarmFlutterUmengPlugin implements MethodCallHandler {
 
     private LcfarmFlutterUmengPlugin(Activity activity) {
         this.activity = activity;
+    }
+
+
+    public static String getChannel(Context context) {
+        try {
+            ApplicationInfo appInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+            String channel = appInfo.metaData.getString("UMENG_CHANNEL");
+            return channel;
+        } catch (PackageManager.NameNotFoundException e) {
+
+        }
+        return null;
     }
 
     @Override
@@ -63,7 +78,9 @@ public class LcfarmFlutterUmengPlugin implements MethodCallHandler {
             String channel = (String) call.argument("channel");
             UMConfigure.init(activity, (String) call.argument("appKey"), channel, UMConfigure.DEVICE_TYPE_PHONE, null);
         }else {
-            UMConfigure.init(activity, (String) call.argument("appKey"), null, UMConfigure.DEVICE_TYPE_PHONE, null);
+
+            String channel = getChannel(activity);
+            UMConfigure.init(activity, (String) call.argument("appKey"), channel, UMConfigure.DEVICE_TYPE_PHONE, null);
         }
 
         boolean encrypt = false;
