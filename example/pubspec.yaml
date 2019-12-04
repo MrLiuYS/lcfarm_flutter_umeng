@@ -1,5 +1,6 @@
 name: lcfarm_flutter_umeng_example
 description: Demonstrates how to use the lcfarm_flutter_umeng plugin.
+version: 0.1.0+8
 publish_to: 'none'
 
 environment:

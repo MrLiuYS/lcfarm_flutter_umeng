@@ -16,10 +16,12 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
 //    initPlatformState();
-
+//083 的账号
     LcfarmFlutterUmeng.init(
-      iOSAppKey: "5cb3dcc00cafb2231600019a",
-      androidAppKey: "5cb3dcef61f5646dab001371",
+      iOSAppKey: "5d89c4f03fc1951398000216",
+      androidAppKey: "5d89c455570df312a900009a",
+      channel: "test1",
+      logEnable: true
     );
   }
 
@@ -31,7 +33,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: lcfarm_flutter_umeng\n'),
+          child: Text('Running on: lcfarm_flutter_umeng\n test1'),
         ),
         floatingActionButton: FloatingActionButton(
             child: const Icon(Icons.add), onPressed: _btnClick1111),
@@ -42,7 +44,7 @@ class _MyAppState extends State<MyApp> {
   void _btnClick1111() {
     print("_btnClick1111");
 
-    LcfarmFlutterUmeng.event("floatingActionButton");
+    LcfarmFlutterUmeng.event("asdf");
 
 //    var list = [1, 2, 3];
 //    var x = list[10];

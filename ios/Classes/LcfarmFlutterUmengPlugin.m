@@ -15,7 +15,7 @@
     //初始化
     if ([@"init" isEqualToString:call.method]) {
         [self init:call result:result];
-        //result(nil);
+        result(nil);
     }
     //事件埋点
     else if ([@"event" isEqualToString:call.method]) {
