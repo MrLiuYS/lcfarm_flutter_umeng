@@ -1,5 +1,5 @@
 #import "LcfarmFlutterUmengPlugin.h"
-#import <UMAnalytics/MobClick.h>
+#import <UMCommon/MobClick.h>
 #import <UMCommon/UMCommon.h>
 
 @implementation LcfarmFlutterUmengPlugin
@@ -38,8 +38,6 @@
 }
 
 - (void)init:(FlutterMethodCall*)call result:(FlutterResult)result {
-    
-    [MobClick setScenarioType:E_UM_NORMAL];
     
     NSNumber* logEnable = call.arguments[@"logEnable"];
     if (logEnable) {

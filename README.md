@@ -58,3 +58,11 @@ import com.umeng.analytics.MobclickAgent;
     </application>
 </manifest>
 ```
+
+使用了多渠道打包。需要修改app/build.gradle
+
+```
+manifestPlaceholders = [
+  CHANNEL_NAME: "默认渠道名",
+]
+```
