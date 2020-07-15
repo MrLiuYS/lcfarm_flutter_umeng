@@ -1,7 +1,6 @@
 name: lcfarm_flutter_umeng
 description: lcfarm umeng plugin.android mast change `MainActivity.java` add `onResume`and `onPause`
 version: 0.1.9
-author: mrliuys <qimeng083@gmail.com>
 homepage: https://github.com/MrLiuYS/lcfarm_flutter_umeng.git
 
 environment:
@@ -24,9 +23,6 @@ flutter:
   # The androidPackage and pluginClass identifiers should not ordinarily
   # be modified. They are used by the tooling to maintain consistency when
   # adding or updating assets for this project.
-  plugin:
-    androidPackage: com.nongfadai.lcfarm_flutter_umeng
-    pluginClass: LcfarmFlutterUmengPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
